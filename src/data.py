@@ -23,17 +23,9 @@ data_transforms = {
 }
 
 def load_data(data_dir, batch_size=32, num_workers=4):
-    """
-    Loads training and test datasets.
     
-    Parameters:
-        data_dir (str): Root data directory (should contain 'train' and 'test' folders)
-        batch_size (int): Mini-batch size
-        num_workers (int): Number of worker threads for data loading
-        
-    Returns:
-        tuple: (train_loader, test_loader, class_names)
-    """
+    # Loads training and test datasets.
+    
     # Load training dataset (expects labeled folders)
     train_dir = os.path.join(data_dir, 'train')
     train_dataset = datasets.ImageFolder(train_dir, transform=data_transforms['train'])
@@ -43,22 +35,13 @@ def load_data(data_dir, batch_size=32, num_workers=4):
     print(f"Classes: {class_names}")
     print(f"Training set size: {len(train_dataset)}")
     
-    # Check for test dataset
-    test_dir = os.path.join(data_dir, 'test')
-    
-    # Check if test folder contains class subfolders
-    if os.path.exists(test_dir) and any(os.path.isdir(os.path.join(test_dir, d)) for d in os.listdir(test_dir)):
-        # Use ImageFolder if test folder is properly structured
-        test_dataset = datasets.ImageFolder(test_dir, transform=data_transforms['test'])
-        print(f"Test set size: {len(test_dataset)}")
-    else:
-        # If no structured test set, split 20% from training data
-        print("No labeled test folder found. Using 20% of the training set for testing.")
-        train_size = int(0.8 * len(train_dataset))
-        test_size = len(train_dataset) - train_size
-        train_dataset, test_dataset = torch.utils.data.random_split(train_dataset, [train_size, test_size])
-        # Update transform for test split
-        test_dataset.dataset.transform = data_transforms['test']
+    # 20% of the training data is split as test data.
+    print("No labeled test folder found. Using 20% of the training set for testing.")
+    train_size = int(0.8 * len(train_dataset))
+    test_size = len(train_dataset) - train_size
+    train_dataset, test_dataset = torch.utils.data.random_split(train_dataset, [train_size, test_size])
+    # Update transform for test split
+    test_dataset.dataset.transform = data_transforms['test']
     
     # Create DataLoaders
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=num_workers)
@@ -67,14 +50,9 @@ def load_data(data_dir, batch_size=32, num_workers=4):
     return train_loader, test_loader, class_names
 
 def visualize_data_samples(data_loader, class_names, num_samples=8):
-    """
-    Visualizes sample images from the dataset.
     
-    Parameters:
-        data_loader (DataLoader): Data loader to visualize from
-        class_names (list): List of class names
-        num_samples (int): Number of images to display
-    """
+    # Visualizes sample images from the dataset.
+    
     # Get a mini-batch
     images, labels = next(iter(data_loader))
     
@@ -111,16 +89,9 @@ def visualize_data_samples(data_loader, class_names, num_samples=8):
     return fig
 
 def get_class_distribution(dataset, class_names):
-    """
-    Calculates the class distribution in the dataset.
     
-    Parameters:
-        dataset (Dataset): The dataset to analyze
-        class_names (list): List of class names
-        
-    Returns:
-        dict: A dictionary with sample counts per class
-    """
+    # Calculates the class distribution in the dataset.
+
     # Initialize class counts
     class_counts = {class_name: 0 for class_name in class_names}
     
@@ -138,12 +109,9 @@ def get_class_distribution(dataset, class_names):
     return class_counts
 
 def plot_class_distribution(class_counts):
-    """
-    Plots the class distribution as a bar chart.
     
-    Parameters:
-        class_counts (dict): Dictionary with sample counts per class
-    """
+    # Plots the class distribution as a bar chart.
+    
     classes = list(class_counts.keys())
     counts = list(class_counts.values())
     
