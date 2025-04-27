@@ -10,22 +10,9 @@ from tqdm import tqdm
 import os
 
 def train_model(model, train_loader, val_loader, criterion, optimizer, device, model_name, num_epochs):
-    """
-    Trains the model, saves weights at each epoch, and returns the best model.
     
-    Parameters:
-        model (nn.Module): Model to be trained
-        train_loader (DataLoader): Training data loader
-        val_loader (DataLoader): Validation data loader
-        criterion: Loss function
-        optimizer: Optimization algorithm
-        device: Device to be used for training (CPU/GPU)
-        num_epochs (int): Number of training epochs
-        model_name (str): Name for the saved model file
-        
-    Returns:
-        tuple: (best_model, train_losses, val_losses, train_accs, val_accs, training_time)
-    """
+    # Trains the model, saves weights at each epoch, and returns the best model.
+    
     # Create directory for saving models
     os.makedirs('../models', exist_ok=True)
     
@@ -131,19 +118,9 @@ def train_model(model, train_loader, val_loader, criterion, optimizer, device, m
     return model, train_losses, val_losses, train_accs, val_accs, time_elapsed
 
 def evaluate_model(model, data_loader, criterion, device, class_names=None):
-    """
-    Evaluates the model performance.
     
-    Parameters:
-        model (nn.Module): The model to evaluate
-        data_loader (DataLoader): DataLoader for evaluation data
-        criterion: Loss function
-        device: Device to be used for evaluation (CPU/GPU)
-        class_names (list): List of class names (optional)
-        
-    Returns:
-        dict: Performance metrics (loss, accuracy, precision, recall, F1 score)
-    """
+    # Evaluates the model performance.
+    
     model.eval()
     running_loss = 0.0
     all_preds = []
@@ -168,7 +145,7 @@ def evaluate_model(model, data_loader, criterion, device, class_names=None):
     accuracy = accuracy_score(all_labels, all_preds)
     precision, recall, f1, _ = precision_recall_fscore_support(all_labels, all_preds, average='weighted')
     
-    # Per-class metrics (optional)
+    # Per-class metrics
     class_metrics = None
     if class_names is not None:
         class_precision, class_recall, class_f1, _ = precision_recall_fscore_support(
@@ -192,19 +169,9 @@ def evaluate_model(model, data_loader, criterion, device, class_names=None):
     }
 
 def plot_training_curves(train_losses, val_losses, train_accs, val_accs, model_name):
-    """
-    Plots training/validation loss and accuracy curves.
     
-    Parameters:
-        train_losses (list): Training losses
-        val_losses (list): Validation losses
-        train_accs (list): Training accuracies
-        val_accs (list): Validation accuracies
-        model_name (str): Model name (used in filenames and titles)
-        
-    Returns:
-        tuple: (fig1, fig2) Two matplotlib figures
-    """
+    # Plots training/validation loss and accuracy curves.
+    
     epochs = range(1, len(train_losses) + 1)
     
     # Loss curve
