@@ -7,19 +7,9 @@ import torchvision.transforms as transforms
 from PIL import Image
 
 def visualize_features(model, layer_num, img_path, device, data_transform=None):
-    """
-    Visualizes feature maps from a specific CNN layer.
     
-    Parameters:
-        model (nn.Module): CNN model
-        layer_num (int): Layer number to visualize
-        img_path (str): Path to the image file
-        device: Device to use (CPU/GPU)
-        data_transform: Image transformation (default: None)
-        
-    Returns:
-        tuple: (feature_grid_fig, detailed_features_fig) Two matplotlib figures
-    """
+    #Visualizes feature maps from a specific CNN layer.
+    
     model.eval()
     
     # Default transformation
@@ -44,9 +34,9 @@ def visualize_features(model, layer_num, img_path, device, data_transform=None):
         
         # VGG16 layer names
         layer_names = {
-            1: 'features.0',  # First conv layer
-            3: 'features.10',  # Middle conv layer
-            5: 'features.30'   # Last conv layer
+            1: 'features.0',  # First conv. layer
+            3: 'features.10',  # Middle conv. layer
+            5: 'features.30'   # Last conv. layer
         }
         
         with torch.no_grad():
@@ -91,19 +81,9 @@ def visualize_features(model, layer_num, img_path, device, data_transform=None):
     return feature_grid_fig, detailed_features_fig
 
 def visualize_predictions(model, data_loader, class_names, device, num_samples=8):
-    """
-    Visualizes model predictions.
     
-    Parameters:
-        model (nn.Module): CNN model
-        data_loader (DataLoader): Data loader
-        class_names (list): Class names
-        device: Device to use (CPU/GPU)
-        num_samples (int): Number of samples to visualize
-        
-    Returns:
-        matplotlib.figure.Figure: Generated figure
-    """
+    # Visualizes model predictions.
+    
     model.eval()
     
     # Get a mini-batch
@@ -146,22 +126,12 @@ def visualize_predictions(model, data_loader, class_names, device, num_samples=8
     return fig
 
 def plot_confusion_matrix(y_true, y_pred, class_names, model_name):
-    """
-    Visualizes the confusion matrix.
     
-    Parameters:
-        y_true (array): Ground truth labels
-        y_pred (array): Predicted labels
-        class_names (list): Class names
-        model_name (str): Model name (used in filename)
-        
-    Returns:
-        matplotlib.figure.Figure: Generated figure
-    """
+    # Visualizes the confusion matrix.
+    
     from sklearn.metrics import confusion_matrix
     import seaborn as sns
     
-    # Confusion matrix
     cm = confusion_matrix(y_true, y_pred)
     
     # Normalize
@@ -180,17 +150,9 @@ def plot_confusion_matrix(y_true, y_pred, class_names, model_name):
     return plt.gcf()
 
 def plot_comparison_chart(results_dict, metric_name='accuracy'):
-    """
-    Draws a comparison chart of different model performances.
     
-    Parameters:
-        results_dict (dict): Dictionary of model performance metrics
-            Format: {'model_name': {'accuracy': 0.xx, 'precision': 0.xx, ...}}
-        metric_name (str): Metric to visualize
-        
-    Returns:
-        matplotlib.figure.Figure: Generated figure
-    """
+    # Draws a comparison chart of different model performances.
+    
     model_names = list(results_dict.keys())
     metric_values = [results_dict[model][metric_name] for model in model_names]
     
@@ -212,18 +174,9 @@ def plot_comparison_chart(results_dict, metric_name='accuracy'):
     return plt.gcf()
 
 def visualize_model_architecture(model, input_size=(3, 224, 224)):
-    """
-    Visualizes the model architecture.
     
-    Note: This function requires the torchviz library.
+    # Visualizes the model architecture.
     
-    Parameters:
-        model (nn.Module): Model to visualize
-        input_size (tuple): Input tensor shape (channels, height, width)
-        
-    Returns:
-        graphviz.Digraph: Generated graph
-    """
     try:
         from torchviz import make_dot
         
