@@ -72,9 +72,11 @@ The [Flowers Dataset](https://www.kaggle.com/datasets/imsparsh/flowers-dataset/d
 
 **💡 Model Weight Saving and Selection**
 
+<div>
 During the training process, I saved the model weights at the end of each epoch. This decision was made to safeguard against unexpected overfitting or underfitting situations. By saving the weights periodically, I could choose the model with the best performance on the validation set, which ensures that I always had access to the most optimal model during the training process.
 
 Since I saved the model weights at each epoch, I was able to select the model with the highest validation accuracy from all three models. This method allowed me to select the best-performing model without risking overfitting or underfitting.
+</div>
 
 **🔥 Training and Validation Curves**
 
