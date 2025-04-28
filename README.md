@@ -60,15 +60,13 @@ Allows adaptation of features to flower-specific characteristics.
 The [Flowers Dataset](https://www.kaggle.com/datasets/imsparsh/flowers-dataset/data) from Kaggle was used, which includes five categories:
 - Contains 5 classes: daisy, dandelion, rose, sunflower, tulip
 - 4242 images total, varying in resolution and lighting
-- Dataset split: 70% train, 15% validation, 15% test
+- Dataset split: 80% train, 20% validation
 
 📌 How to access the dataset:
 - Download manually from Kaggle
 - Extract into the root directory under dataset/flowers/
 
 ## 📈 Training Results and Visualizations
-
-### 1️⃣ Custom CNN Model
 
 **💡 Model Weight Saving and Selection**
 
@@ -77,6 +75,8 @@ During the training process, I saved the model weights at the end of each epoch.
 
 Since I saved the model weights at each epoch, I was able to select the model with the highest validation accuracy from all three models. This method allowed me to select the best-performing model without risking overfitting or underfitting.
 </div>
+
+### 1️⃣ Custom CNN Model
 
 **🔥 Training and Validation Curves**
 
