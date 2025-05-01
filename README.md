@@ -64,7 +64,7 @@ The [Flowers Dataset](https://www.kaggle.com/datasets/imsparsh/flowers-dataset/d
 
 📌 How to access the dataset:
 - Download manually from Kaggle
-- Extract into the root directory under dataset/flowers/
+- Extract into the root directory under /dataset
 
 ## 📈 Training Results and Visualizations
 
@@ -161,13 +161,13 @@ The VGG16 Fine-Tuned model achieved even higher performance than previous models
 
 The table below summarizes the performance comparison of the three models:
 
-| Model                     | Accuracy | Precision | Recall | F1     | Training Time (s)   |
-|---------------------------|----------|-----------|--------|--------|---------------------|
-| Custom CNN                | 0.7618   | 0.7643    | 0.7618 | 0.7621 | 774.57              |
-| VGG16 (Feature Extractor) | 0.8836   | 0.8898    | 0.8836 | 0.8842 | 474.04              |
-| VGG16 (Fine-Tuned)        | 0.9218   | 0.9229    | 0.9218 | 0.9220 | 11060.42            |
+| Model                     | Accuracy | Precision | Recall | F1     | Training Loss   | Validation Loss  | Training Time (s)  |
+|---------------------------|----------|-----------|--------|--------|-----------------|------------------|--------------------|
+| Custom CNN                | 0.7618   | 0.7643    | 0.7618 | 0.7621 | 0.5321          | 0.7421           | 774.57             |
+| VGG16 (Feature Extractor) | 0.8836   | 0.8898    | 0.8836 | 0.8842 | 0.2791          | 0.3603           | 474.04             |
+| VGG16 (Fine-Tuned)        | 0.9218   | 0.9229    | 0.9218 | 0.9220 | 0.0955          | 0.2137           | 11060.42           |
 
-Among the three models, VGG16 Fine-Tuned achieved the highest accuracy, precision, recall, and F1 score, showing the most balanced performance. However, it took significantly longer to train compared to the other models. While CustomCNN had the shortest training time, its performance was lower. VGG16_Feature_Extractor offered a good balance with improved results over CustomCNN. Overall, transfer learning, especially fine-tuning, significantly enhanced model performance and classification accuracy, although it came at the cost of a longer training duration.
+Among the three models, VGG16 Fine-Tuned achieved the highest accuracy, precision, recall, and F1 score, showing the most balanced performance. However, it took significantly longer to train compared to the other models. While CustomCNN had the shortest training time, its performance was lower. VGG16 Feature Extractor offered a good balance with improved results over Custom CNN. Overall, transfer learning, especially fine-tuning, significantly enhanced model performance and classification accuracy, although it came at the cost of a longer training duration.
 
 ## ⚙️ Setup & Usage
 
