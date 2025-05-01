@@ -1,0 +1,2 @@
+You can download the model's weight files from the Google Drive link below:
+https://drive.google.com/drive/folders/1cl39yIIWwApZ2qelZZkwoFnkxPOvWWSb?usp=sharing
