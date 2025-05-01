@@ -1,2 +1,2 @@
-This folder is reserved for the dataset.
-Please download the dataset manually from the provided link and place it here.
+The dataset must be added to this folder manually.
+Please refer to the README.md file for the download link and detailed instructions.
