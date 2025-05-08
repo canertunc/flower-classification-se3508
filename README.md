@@ -59,7 +59,6 @@ Allows adaptation of features to flower-specific characteristics.
 
 The [Flowers Dataset](https://www.kaggle.com/datasets/imsparsh/flowers-dataset/data) from Kaggle was used, which includes five categories:
 - Contains 5 classes: daisy, dandelion, rose, sunflower, tulip
-- 4242 images total, varying in resolution and lighting
 - Dataset split: 80% train, 20% validation
 
 📌 How to access the dataset:
