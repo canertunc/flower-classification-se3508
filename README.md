@@ -75,6 +75,9 @@ During the training process, I saved the model weights at the end of each epoch.
 Since I saved the model weights at each epoch, I was able to select the model with the highest validation accuracy from all three models. This method allowed me to select the best-performing model without risking overfitting or underfitting.
 </div>
 
+⚠️ The technique used for generating **feature maps** in this study is based on the method described by Zeiler and Fergus (2014) for visualizing and understanding convolutional networks.
+[Zeiler & Fergus, 2014 - Visualizing and Understanding Convolutional Networks](https://arxiv.org/abs/1311.2901)
+
 ### 1️⃣ Custom CNN Model
 
 **🔥 Training and Validation Curves**
