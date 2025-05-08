@@ -161,13 +161,15 @@ The VGG16 Fine-Tuned model achieved even higher performance than previous models
 
 The table below summarizes the performance comparison of the three models:
 
-| Model                     | Accuracy | Precision | Recall | F1     | Training Loss   | Validation Loss  | Training Time (s)  |
-|---------------------------|----------|-----------|--------|--------|-----------------|------------------|--------------------|
-| Custom CNN                | 0.7618   | 0.7643    | 0.7618 | 0.7621 | 0.5321          | 0.7421           | 774.57             |
-| VGG16 (Feature Extractor) | 0.8836   | 0.8898    | 0.8836 | 0.8842 | 0.2791          | 0.3603           | 474.04             |
-| VGG16 (Fine-Tuned)        | 0.9218   | 0.9229    | 0.9218 | 0.9220 | 0.0955          | 0.2137           | 11060.42           |
+| Model                     | Accuracy | Precision | Recall | F1     | Training Loss | Validation Loss | Training Time (s) | Epochs |
+|---------------------------|----------|-----------|--------|--------|----------------|------------------|--------------------|--------|
+| Custom CNN                | 0.7618   | 0.7643    | 0.7618 | 0.7621 | 0.5321         | 0.7421           | 774.57             | 25     |
+| VGG16 (Feature Extractor) | 0.8836   | 0.8898    | 0.8836 | 0.8842 | 0.2791         | 0.3603           | 474.04             | 10     |
+| VGG16 (Fine-Tuned)        | 0.9218   | 0.9229    | 0.9218 | 0.9220 | 0.0955         | 0.2137           | 11060.42           | 15     |
 
-Among the three models, VGG16 Fine-Tuned achieved the highest accuracy, precision, recall, and F1 score, showing the most balanced performance. However, it took significantly longer to train compared to the other models. While CustomCNN had the shortest training time, its performance was lower. VGG16 Feature Extractor offered a good balance with improved results over Custom CNN. Overall, transfer learning, especially fine-tuning, significantly enhanced model performance and classification accuracy, although it came at the cost of a longer training duration.
+Among the three models, VGG16 Fine-Tuned demonstrated the most balanced performance, achieving the highest accuracy, precision, recall, and F1 score. Although it reached these results in just 15 epochs, its training time was significantly longer compared to the other models. The high training time, despite GPU usage, was an unexpected result; however, this might have been due to the limited performance of my computer. The VGG16 Feature Extractor model, trained in only 10 epochs, completed training in the shortest time and achieved relatively high performance. CustomCNN, trained for 25 epochs, had an average training time but showed the lowest performance. Overall, transfer learning—particularly fine-tuning—greatly improved model classification accuracy and overall performance, but this improvement came at the cost of longer and resource-intensive training.
+
+**⚠️ Note:** The evaluation was based on the best-performing epoch for each model. The specific epochs selected are discussed in the Training and Validation Curves analysis section.
 
 ## ⚙️ Setup & Usage
 
