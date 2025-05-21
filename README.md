@@ -192,6 +192,7 @@ jupyter lab
 
 4. Open and run `notebooks/flower_classification.ipynb`.
 
+## ❗ Important Notice
 
 This project was completed as part of the SE3508 Introduction to Artificial Intelligence course, 
 instructed by Dr. Selim Yılmaz, Department of Software Engineering at Muğla Sıtkı Koçman 
